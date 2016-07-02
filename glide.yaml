@@ -1,3 +1,4 @@
 package: github.com/shubik22/go-robinhood
 import:
 - package: github.com/urfave/cli
+- package: github.com/dghubble/sling
