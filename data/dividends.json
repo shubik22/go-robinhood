@@ -1,0 +1,19 @@
+{
+  "previous": null,
+  "results": [
+    {
+      "account": "https://api.robinhood.com/accounts/5PYXXXXX/",
+      "url": "https://api.robinhood.com/dividends/de426b02-64b5-4074-b9ce-sdfasdfdsasd/",
+      "amount": "0.52",
+      "payable_date": "2015-12-28",
+      "instrument": "https://api.robinhood.com/instruments/ba8dbdb8-5f53-490c-8756-asdfdasfasdf/",
+      "rate": "0.5190000000",
+      "record_date": "2015-12-23",
+      "position": "1.0000",
+      "withholding": "0.00",
+      "id": "de426b02-64b5-4074-b9ce-55d073da1eab",
+      "paid_at": "2015-12-28T23:03:18.336485Z"
+    }
+  ],
+  "next": null
+}
