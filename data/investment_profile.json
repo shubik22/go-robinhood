@@ -1,1 +1,15 @@
-{"annual_income":"100000_199999","investment_experience":"good_investment_exp","updated_at":"2015-01-29T16:13:17.324204Z","risk_tolerance":"high_risk_tolerance","total_net_worth":"65000_99999","liquidity_needs":"very_important_liq_need","investment_objective":"speculation_invest_obj","source_of_funds":"savings_personal_income","user":"https://api.robinhood.com/user/","suitability_verified":true,"tax_bracket":"","time_horizon":"short_time_horizon","liquid_net_worth":"50000_99999"}
+{
+  "annual_income": "100000_199999",
+  "investment_experience": "good_investment_exp",
+  "updated_at": "2015-01-29T16:13:17.324204Z",
+  "risk_tolerance": "high_risk_tolerance",
+  "total_net_worth": "65000_99999",
+  "liquidity_needs": "very_important_liq_need",
+  "investment_objective": "speculation_invest_obj",
+  "source_of_funds": "savings_personal_income",
+  "user": "https://api.robinhood.com/user/",
+  "suitability_verified": true,
+  "tax_bracket": "",
+  "time_horizon": "short_time_horizon",
+  "liquid_net_worth": "50000_99999"
+}

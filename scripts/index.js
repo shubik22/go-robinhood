@@ -15,19 +15,19 @@ var endpoints = [
 ];
 
 function downloadAndSave(robinhood, endpoint) {
-	console.log('** Downloading ' + endpoint);
+  console.log('** Downloading ' + endpoint);
 
-	robinhood[endpoint](function(err, response, body) {
-		var filename = '../data/' + endpoint + '.json';
-		var data = JSON.stringify(body);
-		console.log('** Saving ' + endpoint);
-		fs.writeFile(filename, data);
-	});
+  robinhood[endpoint](function(err, response, body) {
+    var filename = '../data/' + endpoint + '.json';
+    var data = JSON.stringify(body);
+    console.log('** Saving ' + endpoint);
+    fs.writeFile(filename, data);
+  });
 }
 
 var robinhood = Robinhood({
-	username: username,
-	password: password
+  username: username,
+  password: password
 }, function() {
-	endpoints.forEach(downloadAndSave.bind(this, robinhood))
+  endpoints.forEach(downloadAndSave.bind(this, robinhood))
 });
