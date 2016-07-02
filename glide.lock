@@ -1,8 +1,16 @@
-hash: 62b78c15b83a49e47f80940d92d2cddcb4a03a5d895b606ad422f383e300594c
-updated: 2016-06-29T20:28:05.829343804-07:00
+hash: c057a8ae5bec6b6bff5c2c7f503eb625bd4907a7b749048f9491863cd8bebf66
+updated: 2016-07-02T15:13:48.79344784-07:00
 imports:
 - name: github.com/dghubble/sling
   version: 4af638d6d3265b9f740bf6d2665ef20d7abd0103
+- name: github.com/google/go-querystring
+  version: 9235644dd9e52eeae6fa48efd539fdc351a0af53
+  subpackages:
+  - query
+- name: github.com/spf13/viper
+  version: c1ccc378a054ea8d4e38d8c67f6938d4760b53dd
 - name: github.com/urfave/cli
   version: 1efa31f08b9333f1bd4882d61f9d668a70cd902e
+- name: viper
+  version: ""
 devImports: []
