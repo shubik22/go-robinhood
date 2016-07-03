@@ -13,7 +13,7 @@ type UsersResponse struct {
   Users []models.User
 }
 
-func UsersHandler(c *iris.Context) {
+func UsersHandlerDev(c *iris.Context) {
 	b, err := ioutil.ReadFile("./fixtures/users.json")
 
 	if err != nil {

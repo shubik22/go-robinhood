@@ -9,6 +9,6 @@ import (
 
 func main() {
   iris.Use(recovery.New())
-  iris.Get("/users", handlers.UsersHandler)
+  iris.Get("/users", handlers.UsersHandlerDev)
 	iris.Listen(":8080")
 }
