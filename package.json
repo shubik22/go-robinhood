@@ -37,6 +37,8 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
+    "milligram": "^1.1.0",
+    "normalize.css": "^4.2.0",
     "react": "^15.2.0",
     "react-dom": "^15.2.0",
     "react-redux": "^4.4.5",
