@@ -24,3 +24,7 @@ _testmain.go
 *.prof
 
 vendor/
+node_modules/
+static_files/css/milligram.min.css
+static_files/css/normalize.css
+static_files/js/*.bundle.js
