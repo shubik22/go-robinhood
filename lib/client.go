@@ -1,7 +1,7 @@
 package client
 
 import (
-	"github.com/dghubble/sling"
+  "github.com/dghubble/sling"
 )
 
 

@@ -1,20 +1,14 @@
 package main
 
 import (
-	"fmt"
-	"os"
+  "github.com/iris-contrib/middleware/recovery"
+  "github.com/kataras/iris"
 
-	"github.com/urfave/cli"
+  "github.com/shubik22/go-robinhood/lib/handlers"
 )
 
 func main() {
-	app := cli.NewApp()
-	app.Name = "boom"
-	app.Usage = "make an explosive entrance"
-	app.Action = func(c *cli.Context) error {
-		fmt.Println("boom!  I say!")
-		return nil
-	}
-
-	app.Run(os.Args)
+  iris.Use(recovery.New())
+  iris.Get("/users", handlers.UsersHandlerDev)
+  iris.Listen(":8080")
 }

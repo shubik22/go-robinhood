@@ -1,0 +1,49 @@
+{
+  "users": [
+    {
+      "username": "kanye1",
+      "cash_balance": 11.11,
+      "position_balance": 111.11
+    },
+    {
+      "username": "kanye2",
+      "cash_balance": 22.22,
+      "position_balance": 222.22
+    },
+    {
+      "username": "kanye3",
+      "cash_balance": 33.33,
+      "position_balance": 333.33
+    },
+    {
+      "username": "kanye4",
+      "cash_balance": 44.44,
+      "position_balance": 444.44
+    },
+    {
+      "username": "kanye5",
+      "cash_balance": 55.55,
+      "position_balance": 555.55
+    },
+    {
+      "username": "kanye6",
+      "cash_balance": 66.66,
+      "position_balance": 666.66
+    },
+    {
+      "username": "kanye7",
+      "cash_balance": 77.77,
+      "position_balance": 777.77
+    },
+    {
+      "username": "kanye8",
+      "cash_balance": 88.88,
+      "position_balance": 888.88
+    },
+    {
+      "username": "kanye9",
+      "cash_balance": 99.99,
+      "position_balance": 999.99
+    }
+  ]
+}
