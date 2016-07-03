@@ -14,17 +14,17 @@ type UsersResponse struct {
 }
 
 func UsersHandlerDev(c *iris.Context) {
-	b, err := ioutil.ReadFile("./fixtures/users.json")
+  b, err := ioutil.ReadFile("./fixtures/users.json")
 
-	if err != nil {
-		panic(err)
-	}
+  if err != nil {
+    panic(err)
+  }
 
-	var ur UsersResponse
+  var ur UsersResponse
 
-	if err := json.Unmarshal(b, &ur); err != nil {
-		panic(err)
-	}
+  if err := json.Unmarshal(b, &ur); err != nil {
+    panic(err)
+  }
 
-	c.JSON(iris.StatusOK, ur)
+  c.JSON(iris.StatusOK, ur)
 }
