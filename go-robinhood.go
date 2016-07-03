@@ -1,32 +1,14 @@
 package main
 
 import (
-	"encoding/json"
-	"io/ioutil"
-
+  "github.com/iris-contrib/middleware/recovery"
 	"github.com/kataras/iris"
-	"github.com/shubik22/go-robinhood/lib/models"
+
+  "github.com/shubik22/go-robinhood/lib/handlers"
 )
 
-type UsersResponse struct {
-	Users []models.User
-}
-
 func main() {
-	b, err := ioutil.ReadFile("./fixtures/users.json")
-
-	if err != nil {
-		panic(err)
-	}
-
-	var ur UsersResponse
-
-	if err := json.Unmarshal(b, &ur); err != nil {
-		panic(err)
-	}
-
-	iris.Get("/users", func(c *iris.Context) {
-		c.JSON(iris.StatusOK, ur)
-	})
+  iris.Use(recovery.New())
+  iris.Get("/users", handlers.UsersHandler)
 	iris.Listen(":8080")
 }

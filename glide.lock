@@ -1,5 +1,5 @@
-hash: 179f014091f731099b62c0cd8841bd4c32746d764f5331e94468f75c925d09b7
-updated: 2016-07-02T16:26:33.455836961-07:00
+hash: 821fab9c04e65adbc48a9eeb891237669ae2170fc1a9518d923ab5ef95fb2533
+updated: 2016-07-02T17:36:30.727405272-07:00
 imports:
 - name: github.com/aymerick/raymond
   version: a2232af10b53ef1ae5a767f5178db3a6c1dab655
@@ -32,12 +32,16 @@ imports:
   version: 9d4599565f75fd376a8e4ae5ccc98fc078b93b69
 - name: github.com/iris-contrib/formBinder
   version: 32009bbc76eda475a6d1eb24787d1fdcdaf80e71
+- name: github.com/iris-contrib/middleware
+  version: a4164aa6b36721c74ae318339b1a3b22072c2789
+  subpackages:
+  - recovery
 - name: github.com/iris-contrib/websocket
   version: a2c30084384c39ce6595169df8b93d7298ac04cd
 - name: github.com/Joker/jade
   version: db4d7e4f68708c5020c392b380e3565df2132840
 - name: github.com/kataras/iris
-  version: 160b8d9545b66fbab00109f59e227df9fd8c6487
+  version: 1354b74822b5cde05f9a4009b8667c2fe8c88650
   subpackages:
   - config
   - context
