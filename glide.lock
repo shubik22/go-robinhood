@@ -1,16 +1,96 @@
-hash: c057a8ae5bec6b6bff5c2c7f503eb625bd4907a7b749048f9491863cd8bebf66
-updated: 2016-07-02T15:13:48.79344784-07:00
+hash: 179f014091f731099b62c0cd8841bd4c32746d764f5331e94468f75c925d09b7
+updated: 2016-07-02T16:26:33.455836961-07:00
 imports:
+- name: github.com/aymerick/raymond
+  version: a2232af10b53ef1ae5a767f5178db3a6c1dab655
+  subpackages:
+  - ast
+  - parser
+  - lexer
 - name: github.com/dghubble/sling
   version: 4af638d6d3265b9f740bf6d2665ef20d7abd0103
+- name: github.com/eknkc/amber
+  version: 91774f050c1453128146169b626489e60108ec03
+  subpackages:
+  - parser
+- name: github.com/fatih/color
+  version: 87d4004f2ab62d0d255e0a38f1680aa534549fe3
+- name: github.com/flosch/pongo2
+  version: 7f5515449ea9bbeb00256d9cbb654c556e7d0146
+- name: github.com/garyburd/redigo
+  version: b8dc90050f24c1a73a52f107f3f575be67b21b7c
+  subpackages:
+  - redis
+  - internal
 - name: github.com/google/go-querystring
   version: 9235644dd9e52eeae6fa48efd539fdc351a0af53
   subpackages:
   - query
-- name: github.com/spf13/viper
-  version: c1ccc378a054ea8d4e38d8c67f6938d4760b53dd
-- name: github.com/urfave/cli
-  version: 1efa31f08b9333f1bd4882d61f9d668a70cd902e
-- name: viper
-  version: ""
+- name: github.com/imdario/mergo
+  version: 50d4dbd4eb0e84778abe37cefef140271d96fade
+- name: github.com/iris-contrib/errors
+  version: 9d4599565f75fd376a8e4ae5ccc98fc078b93b69
+- name: github.com/iris-contrib/formBinder
+  version: 32009bbc76eda475a6d1eb24787d1fdcdaf80e71
+- name: github.com/iris-contrib/websocket
+  version: a2c30084384c39ce6595169df8b93d7298ac04cd
+- name: github.com/Joker/jade
+  version: db4d7e4f68708c5020c392b380e3565df2132840
+- name: github.com/kataras/iris
+  version: 160b8d9545b66fbab00109f59e227df9fd8c6487
+  subpackages:
+  - config
+  - context
+  - logger
+  - render/rest
+  - render/template
+  - sessions
+  - sessions/providers/memory
+  - sessions/providers/redis
+  - sessions/store
+  - utils
+  - websocket
+  - render/template/engine/amber
+  - render/template/engine/handlebars
+  - render/template/engine/html
+  - render/template/engine/jade
+  - render/template/engine/markdown
+  - render/template/engine/pongo
+  - sessions/providers/redis/service
+- name: github.com/klauspost/compress
+  version: 14eb9c4951195779ecfbec34431a976de7335b0a
+  subpackages:
+  - gzip
+  - flate
+  - zlib
+- name: github.com/klauspost/cpuid
+  version: 09cded8978dc9e80714c4d85b0322337b0a1e5e0
+- name: github.com/klauspost/crc32
+  version: 19b0b332c9e4516a6370a0456e6182c3b5036720
+- name: github.com/mattn/go-colorable
+  version: 9056b7a9f2d1f2d96498d6d146acd1f9d5ed3d59
+- name: github.com/mattn/go-isatty
+  version: 56b76bdf51f7708750eac80fa38b952bb9f32639
+- name: github.com/microcosm-cc/bluemonday
+  version: 9dc199233bf72cc1aad9b61f73daf2f0075b9ee4
+- name: github.com/russross/blackfriday
+  version: 1d6b8e9301e720b08a8938b8c25c018285885438
+- name: github.com/shurcooL/sanitized_anchor_name
+  version: 10ef21a441db47d8b13ebcc5fd2310f636973c77
+- name: github.com/valyala/bytebufferpool
+  version: a517d2d1537f5b02e9f6c23d4794160c6c2bc157
+- name: github.com/valyala/fasthttp
+  version: 97d96cb3b7feaf22ce9b813313cd8ae20b3589b9
+  subpackages:
+  - fasthttpadaptor
+  - fasthttputil
+- name: golang.org/x/net
+  version: b400c2eff1badec7022a8c8f5bea058b6315eed7
+  subpackages:
+  - html
+  - html/atom
+- name: golang.org/x/sys
+  version: 62bee037599929a6e9146f29d10dd5208c43507d
+  subpackages:
+  - unix
 devImports: []

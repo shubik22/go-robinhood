@@ -1,6 +1,10 @@
 package models
 
-type AccountsResponse struct {
+import (
+  "time"
+)
+
+type RHAccountsResponse struct {
   Previous interface{} `json:"previous"`
   Results []struct {
     Deactivated bool `json:"deactivated"`

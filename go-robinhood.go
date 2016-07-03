@@ -1,20 +1,32 @@
 package main
 
 import (
-	"fmt"
-	"os"
+	"encoding/json"
+	"io/ioutil"
 
-	"github.com/urfave/cli"
+	"github.com/kataras/iris"
+	"github.com/shubik22/go-robinhood/lib/models"
 )
 
+type UsersResponse struct {
+	Users []models.User
+}
+
 func main() {
-	app := cli.NewApp()
-	app.Name = "boom"
-	app.Usage = "make an explosive entrance"
-	app.Action = func(c *cli.Context) error {
-		fmt.Println("boom!  I say!")
-		return nil
+	b, err := ioutil.ReadFile("./fixtures/users.json")
+
+	if err != nil {
+		panic(err)
 	}
 
-	app.Run(os.Args)
+	var ur UsersResponse
+
+	if err := json.Unmarshal(b, &ur); err != nil {
+		panic(err)
+	}
+
+	iris.Get("/users", func(c *iris.Context) {
+		c.JSON(iris.StatusOK, ur)
+	})
+	iris.Listen(":8080")
 }
