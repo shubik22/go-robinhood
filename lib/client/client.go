@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"net/url"
 )
@@ -30,8 +29,9 @@ type Client struct {
 	common      service
 	Credentials *CredentialsManager
 
-	Accounts *AccountService
-	Auth     *AuthenticationService
+	Accounts  *AccountService
+	Auth      *AuthenticationService
+	Positions *PositionService
 }
 
 func NewClient() *Client {
@@ -40,6 +40,7 @@ func NewClient() *Client {
 	c.common.client = c
 	c.Accounts = (*AccountService)(&c.common)
 	c.Auth = (*AuthenticationService)(&c.common)
+	c.Positions = (*PositionService)(&c.common)
 	c.Credentials = NewCredentialsManager()
 	return c
 }
@@ -94,11 +95,7 @@ func (c *Client) NewRequest(method, urlStr string, body interface{}) (*http.Requ
 }
 
 func (c *Client) handleResponse(resp *http.Response, v interface{}) (*http.Response, error) {
-	defer func() {
-		// Drain up to 512 bytes and close the body to let the Transport reuse the connection
-		io.CopyN(ioutil.Discard, resp.Body, 512)
-		resp.Body.Close()
-	}()
+	defer resp.Body.Close()
 
 	err := c.CheckResponse(resp)
 	if err != nil {
@@ -151,7 +148,6 @@ func (c *Client) CheckResponse(r *http.Response) error {
 func (c *Client) getDefaultHeaders() map[string]string {
 	defaultHeaders := map[string]string{
 		"Accept":                  "*/*",
-		"Accept-Encoding":         "gzip, deflate",
 		"Accept-Language":         "en;q=1, fr;q=0.9, de;q=0.8, ja;q=0.7, nl;q=0.6, it;q=0.5",
 		"Content-Type":            "application/x-www-form-urlencoded",
 		"X-Robinhood-API-Version": "1.91.1",
