@@ -61,6 +61,7 @@ jspm_packages
 .node_repl_history
 
 .env
+config/credentials.json
 
 # Built files
 static_files/css/milligram.min.css
