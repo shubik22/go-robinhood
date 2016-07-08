@@ -1,4 +1,5 @@
 const gulp = require('gulp');
+const gulpif = require('gulp-if');
 const path = require('path');
 const del = require('del');
 const browserify = require('browserify');
@@ -45,16 +46,23 @@ gulp.task('typecheck-js', () => {
 });
 
 gulp.task('compile-js', () => {
+  const isProduction = process.env.NODE_ENV === 'production'
   const entryPoint = path.join(jsSrcPath, 'app.js');
+  const browserifyOptions = {
+    entries: [entryPoint],
+    debug: true,
+    cache: {},
+    packageCache: {}
+  }
 
   del(path.join(jsPath, '*'));
 
-  return browserify(entryPoint)
+  return browserify(browserifyOptions)
     .transform("babelify")
     .bundle()
     .pipe(source('app.bundle.js'))
     .pipe(buffer())
-    .pipe(uglify())
+    .pipe(gulpif(isProduction, uglify()))
     .pipe(gulp.dest(jsPath));
 });
 

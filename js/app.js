@@ -1,10 +1,15 @@
 'use strict'
 
-const React = require('react');
-const ReactDOM = require('react-dom');
-const Page = require('./components/page');
+import React from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './store';
+import LeaderboardContainer from './containers/leaderboard-container';
 
-ReactDOM.render(
-  <Page />,
+render(
+  <Provider store={store}>
+    <LeaderboardContainer />
+  </Provider>,
   document.getElementById('app')
 );
+
