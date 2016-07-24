@@ -17,16 +17,9 @@ type authRequest struct {
 type AuthenticationService service
 
 func (s *AuthenticationService) Login() (*http.Response, error) {
-	username := s.client.UserName
-	password, err := s.client.Credentials.GetPassword(username)
-
-	if err != nil {
-		return nil, err
-	}
-
 	params := url.Values{}
-	params.Add("username", username)
-	params.Add("password", password)
+	params.Add("username", s.client.UserName)
+	params.Add("password", s.client.Password)
 
 	a := &authResponse{}
 	resp, err := s.client.PostForm("api-token-auth/", params, a)

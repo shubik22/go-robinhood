@@ -51,6 +51,14 @@ func (c *CredentialsManager) AddUser(u userCredentials) {
 	c.UsersMap[u.UserName] = u.Password
 }
 
+func (c *CredentialsManager) AllUsers() []string {
+    users := make([]string, 0, len(c.UsersMap))
+    for u := range c.UsersMap {
+        users = append(users, u)
+    }
+    return users
+}
+
 func (c *CredentialsManager) GetPassword(u string) (string, error) {
 	pw := c.UsersMap[u]
 	if pw == "" {

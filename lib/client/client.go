@@ -11,7 +11,6 @@ import (
 
 const (
 	defaultBaseURL  = "https://api.robinhood.com/"
-	defaultUserName = "shubik"
 )
 
 type service struct {
@@ -24,24 +23,23 @@ type Client struct {
 
 	BaseURL   *url.URL
 	UserName  string
+	Password  string
 	AuthToken string
 
 	common      service
-	Credentials *CredentialsManager
 
 	Accounts  *AccountService
 	Auth      *AuthenticationService
 	Positions *PositionService
 }
 
-func NewClient() *Client {
+func NewClient(username, password string) *Client {
 	baseURL, _ := url.Parse(defaultBaseURL)
-	c := &Client{client: http.DefaultClient, BaseURL: baseURL, UserName: defaultUserName}
+	c := &Client{client: http.DefaultClient, BaseURL: baseURL, UserName: username, Password: password}
 	c.common.client = c
 	c.Accounts = (*AccountService)(&c.common)
 	c.Auth = (*AuthenticationService)(&c.common)
 	c.Positions = (*PositionService)(&c.common)
-	c.Credentials = NewCredentialsManager()
 	return c
 }
 
