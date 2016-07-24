@@ -52,11 +52,11 @@ func (c *CredentialsManager) AddUser(u userCredentials) {
 }
 
 func (c *CredentialsManager) AllUsers() []string {
-    users := make([]string, 0, len(c.UsersMap))
-    for u := range c.UsersMap {
-        users = append(users, u)
-    }
-    return users
+	users := make([]string, 0, len(c.UsersMap))
+	for u := range c.UsersMap {
+		users = append(users, u)
+	}
+	return users
 }
 
 func (c *CredentialsManager) GetPassword(u string) (string, error) {

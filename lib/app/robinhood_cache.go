@@ -3,7 +3,7 @@ package app
 import (
 	"fmt"
 	"github.com/patrickmn/go-cache"
-  "github.com/shubik22/go-robinhood/lib/models"
+	"github.com/shubik22/go-robinhood/lib/models"
 )
 
 type RobinhoodCache struct {
@@ -20,21 +20,21 @@ func (rc *RobinhoodCache) SetAccount(username string, account *models.Account) {
 	rc.cache.Set(key, *account, cache.NoExpiration)
 }
 
-func (rc *RobinhoodCache) GetAccount(username string) (models.Account) {
-  key := fmt.Sprintf("%v:account", username)
-  a, _ := rc.cache.Get(key)
-  return a.(models.Account)
+func (rc *RobinhoodCache) GetAccount(username string) models.Account {
+	key := fmt.Sprintf("%v:account", username)
+	a, _ := rc.cache.Get(key)
+	return a.(models.Account)
 }
 
 func (rc *RobinhoodCache) SetPositions(username string, pr *models.PositionsResponse) {
-  key := fmt.Sprintf("%v:positions", username)
-  rc.cache.Set(key, *pr, cache.NoExpiration)
+	key := fmt.Sprintf("%v:positions", username)
+	rc.cache.Set(key, *pr, cache.NoExpiration)
 }
 
-func (rc *RobinhoodCache) GetPositions(username string) (models.PositionsResponse) {
-  key := fmt.Sprintf("%v:positions", username)
-  p, _ := rc.cache.Get(key)
-  return p.(models.PositionsResponse)
+func (rc *RobinhoodCache) GetPositions(username string) models.PositionsResponse {
+	key := fmt.Sprintf("%v:positions", username)
+	p, _ := rc.cache.Get(key)
+	return p.(models.PositionsResponse)
 }
 
 func (rc *RobinhoodCache) SetLeaderboard(lb *models.Leaderboard) {
@@ -43,5 +43,5 @@ func (rc *RobinhoodCache) SetLeaderboard(lb *models.Leaderboard) {
 
 func (rc *RobinhoodCache) GetLeaderboard() models.Leaderboard {
 	lb, _ := rc.cache.Get("leaderboard")
-  return lb.(models.Leaderboard)
+	return lb.(models.Leaderboard)
 }

@@ -17,7 +17,7 @@ func main() {
 	iris.Use(recovery.New())
 
 	iris.Get("/users", handlers.UsersHandlerDev)
-	iris.Get("/leaderboard", func (ctx *iris.Context) {
+	iris.Get("/leaderboard", func(ctx *iris.Context) {
 		handlers.LeaderboardHandler(a, ctx)
 	})
 

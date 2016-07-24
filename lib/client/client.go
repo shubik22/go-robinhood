@@ -10,7 +10,7 @@ import (
 )
 
 const (
-	defaultBaseURL  = "https://api.robinhood.com/"
+	defaultBaseURL = "https://api.robinhood.com/"
 )
 
 type service struct {
@@ -26,7 +26,7 @@ type Client struct {
 	Password  string
 	AuthToken string
 
-	common      service
+	common service
 
 	Accounts  *AccountService
 	Auth      *AuthenticationService

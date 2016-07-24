@@ -13,12 +13,12 @@ type App struct {
 	cm    *client.ClientManager
 }
 
-func NewApp() (*App) {
-  a := &App{
-    cache: NewCache(),
-    cm: client.NewClientManager(),
-  }
-  return a
+func NewApp() *App {
+	a := &App{
+		cache: NewCache(),
+		cm:    client.NewClientManager(),
+	}
+	return a
 }
 
 func (a *App) Init() {
@@ -28,7 +28,7 @@ func (a *App) Init() {
 
 func (a *App) populateCache() {
 	for _, c := range a.cm.Clients {
-    fmt.Printf("Fetching data for %v\n", c.UserName)
+		fmt.Printf("Fetching data for %v\n", c.UserName)
 		a.FetchData(c)
 	}
 }
@@ -39,7 +39,7 @@ func (a *App) FetchData(c *client.Client) {
 }
 
 func (a *App) FetchAccounts(c *client.Client) {
-  fmt.Printf("Fetching account for %v\n", c.UserName)
+	fmt.Printf("Fetching account for %v\n", c.UserName)
 	ar, _, err := c.Accounts.ListAccounts()
 	if err != nil {
 		fmt.Printf("Failed fetching accounts for %v.\n", c.UserName)
@@ -56,7 +56,7 @@ func (a *App) FetchAccounts(c *client.Client) {
 }
 
 func (a *App) FetchPositions(c *client.Client) {
-  fmt.Printf("Fetching positions for %v\n", c.UserName)
+	fmt.Printf("Fetching positions for %v\n", c.UserName)
 	pr, _, err := c.Positions.ListPositions()
 	if err != nil {
 		fmt.Printf("Failed fetching positions for %v.\nError: %v", c.UserName, err)
@@ -66,9 +66,9 @@ func (a *App) FetchPositions(c *client.Client) {
 	a.cache.SetPositions(c.UserName, pr)
 }
 
-func (a *App) GetLeaderboard() (*models.Leaderboard) {
+func (a *App) GetLeaderboard() *models.Leaderboard {
 	lb := a.cache.GetLeaderboard()
-  return &lb
+	return &lb
 }
 
 func (a *App) calculateLeaderboard() {
