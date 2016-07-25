@@ -31,6 +31,7 @@ type Client struct {
 	Accounts  *AccountService
 	Auth      *AuthenticationService
 	Positions *PositionService
+	Quotes    *QuoteService
 }
 
 func NewClient(username, password string) *Client {
@@ -40,6 +41,7 @@ func NewClient(username, password string) *Client {
 	c.Accounts = (*AccountService)(&c.common)
 	c.Auth = (*AuthenticationService)(&c.common)
 	c.Positions = (*PositionService)(&c.common)
+	c.Quotes = (*QuoteService)(&c.common)
 	return c
 }
 
@@ -58,7 +60,6 @@ func (c *Client) PostForm(urlStr string, data url.Values, v interface{}) (resp *
 	return c.handleResponse(resp, v)
 }
 
-// NewRequest returns a new authenticated request
 func (c *Client) NewRequest(method, urlStr string, body interface{}) (*http.Request, error) {
 	fullUrl, err := c.resolveUrl(urlStr)
 
@@ -66,6 +67,10 @@ func (c *Client) NewRequest(method, urlStr string, body interface{}) (*http.Requ
 		return nil, err
 	}
 
+	return c.NewRequestWithFullUrl(method, fullUrl, body)
+}
+
+func (c *Client) NewRequestWithFullUrl(method, fullUrl string, body interface{}) (*http.Request, error) {
 	var buf io.ReadWriter
 	if body != nil {
 		buf = &bytes.Buffer{}

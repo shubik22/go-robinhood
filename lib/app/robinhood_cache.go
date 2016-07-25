@@ -37,6 +37,17 @@ func (rc *RobinhoodCache) GetPositions(username string) models.PositionsResponse
 	return p.(models.PositionsResponse)
 }
 
+func (rc *RobinhoodCache) SetQuote(positionUrl string, quote *models.Quote) {
+	key := fmt.Sprintf("%v:quote", positionUrl)
+	rc.cache.Set(key, *quote, cache.NoExpiration)
+}
+
+func (rc *RobinhoodCache) GetQuote(positionUrl string) models.Quote {
+	key := fmt.Sprintf("%v:quote", positionUrl)
+	a, _ := rc.cache.Get(key)
+	return a.(models.Quote)
+}
+
 func (rc *RobinhoodCache) SetLeaderboard(lb *models.Leaderboard) {
 	rc.cache.Set("leaderboard", *lb, cache.NoExpiration)
 }
