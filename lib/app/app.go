@@ -2,8 +2,10 @@ package app
 
 import (
 	"fmt"
+	"github.com/robfig/cron"
 	"github.com/shubik22/go-robinhood/lib/client"
 	"github.com/shubik22/go-robinhood/lib/models"
+	"math/rand"
 	"sort"
 	"strconv"
 )
@@ -24,6 +26,7 @@ func NewApp() *App {
 func (a *App) Init() {
 	a.populateCache()
 	a.calculateLeaderboard()
+	a.setupCronJobs()
 }
 
 func (a *App) populateCache() {
@@ -31,6 +34,22 @@ func (a *App) populateCache() {
 		fmt.Printf("Fetching data for %v\n", c.UserName)
 		a.FetchData(c)
 	}
+}
+
+func (a *App) setupCronJobs() {
+	cr := cron.New()
+
+	for _, c := range a.cm.Clients {
+		minutes := rand.Intn(10) + 20
+		seconds := rand.Intn(60)
+		durationStr := fmt.Sprintf("@every %vm%vs", minutes, seconds)
+		fmt.Printf("Setting cron job to update %v %v\n", c.UserName, durationStr)
+		cr.AddFunc(durationStr, func() {
+			a.FetchData(c)
+		})
+	}
+
+	cr.Start()
 }
 
 func (a *App) FetchData(c *client.Client) {
