@@ -46,6 +46,7 @@ func (a *App) setupCronJobs() {
 		fmt.Printf("Setting cron job to update %v %v\n", c.UserName, durationStr)
 		cr.AddFunc(durationStr, func() {
 			a.FetchData(c)
+			a.calculateLeaderboard()
 		})
 	}
 
