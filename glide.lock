@@ -1,5 +1,5 @@
-hash: 569c0e52d81c2109e405d7cb9c7136feba56e7bc8e0ec9a5e30ef6096c5e49f9
-updated: 2016-07-31T13:04:08.412519349-07:00
+hash: 185683973d364d8a1e7e363997898f15a430644ab138a9ecdb3cbae57e15dcc1
+updated: 2016-07-31T13:30:35.066027468-07:00
 imports:
 - name: github.com/ajg/form
   version: 7ff89c75808766205bfa4411abb436c98c33eb5e
@@ -55,6 +55,8 @@ imports:
   - html
 - name: github.com/iris-contrib/websocket
   version: 2f1c3fd901de3359a6452a212c8be784f04b7073
+- name: github.com/joho/godotenv
+  version: a01a834e1654b4c9ca5b3ad05159445cc9c7ad08
 - name: github.com/kataras/iris
   version: 922248bbf11a29c975655f2d75a16756cb052332
   subpackages:

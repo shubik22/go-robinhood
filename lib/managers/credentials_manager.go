@@ -1,54 +1,38 @@
 package managers
 
 import (
-	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"log"
+	"os"
+	"strings"
+
+	"github.com/joho/godotenv"
 )
-
-const (
-	credentialsFile = "config/credentials.json"
-)
-
-type userStore struct {
-	Users []userCredentials `json:"users"`
-}
-
-type userCredentials struct {
-	UserName string `json:"username"`
-	Password string `json:"password"`
-}
 
 type CredentialsManager struct {
 	UsersMap map[string]string
 }
 
 func NewCredentialsManager() *CredentialsManager {
-	b, err := ioutil.ReadFile(credentialsFile)
-
+	err := godotenv.Load()
 	if err != nil {
-		panic(err)
-	}
-
-	var us userStore
-
-	if err := json.Unmarshal(b, &us); err != nil {
-		panic(err)
+		log.Fatal("Error loading .env file")
 	}
 
 	cm := &CredentialsManager{
 		UsersMap: make(map[string]string),
 	}
 
-	for _, el := range us.Users {
-		cm.AddUser(el)
+	usersStr := os.Getenv("USERNAMES")
+	usernames := strings.Split(usersStr, ",")
+
+	for _, username := range usernames {
+		pwKey := fmt.Sprintf("%v:pw", username)
+		pw := os.Getenv(pwKey)
+		cm.UsersMap[username] = pw
 	}
 
 	return cm
-}
-
-func (c *CredentialsManager) AddUser(u userCredentials) {
-	c.UsersMap[u.UserName] = u.Password
 }
 
 func (c *CredentialsManager) AllUsers() []string {
