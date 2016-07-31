@@ -3,10 +3,10 @@ package handlers
 import (
 	"github.com/kataras/iris"
 
-	"github.com/shubik22/go-robinhood/lib/client"
+	"github.com/shubik22/robinhood"
 )
 
-func AccountsHandler(c *client.Client, ctx *iris.Context) {
+func AccountsHandler(c *robinhood.Client, ctx *iris.Context) {
 	a, _, err := c.Accounts.ListAccounts()
 	if err != nil {
 		panic(err)

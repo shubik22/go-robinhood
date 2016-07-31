@@ -1,7 +1,11 @@
-package client
+package managers
+
+import (
+	"github.com/shubik22/robinhood"
+)
 
 type ClientManager struct {
-	Clients []*Client
+	Clients []*robinhood.Client
 }
 
 func NewClientManager() *ClientManager {

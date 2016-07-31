@@ -6,11 +6,11 @@ import (
 
 	"github.com/kataras/iris"
 
-	"github.com/shubik22/go-robinhood/lib/models"
+	"github.com/shubik22/robinhood"
 )
 
 type UsersResponse struct {
-	Users []models.User
+	Users []robinhood.User
 }
 
 func UsersHandlerDev(c *iris.Context) {

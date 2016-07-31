@@ -6,3 +6,4 @@ import:
   - recovery
 - package: github.com/patrickmn/go-cache
   version: ^2.0.0
+- package: github.com/shubik22/robinhood-client

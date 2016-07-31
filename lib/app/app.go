@@ -3,8 +3,7 @@ package app
 import (
 	"fmt"
 	"github.com/robfig/cron"
-	"github.com/shubik22/go-robinhood/lib/client"
-	"github.com/shubik22/go-robinhood/lib/models"
+	"github.com/shubik22/robinhood"
 	"math/rand"
 	"sort"
 	"strconv"
@@ -12,13 +11,13 @@ import (
 
 type App struct {
 	cache *RobinhoodCache
-	cm    *client.ClientManager
+	cm    *robinhood.ClientManager
 }
 
 func NewApp() *App {
 	a := &App{
 		cache: NewCache(),
-		cm:    client.NewClientManager(),
+		cm:    robinhood.NewClientManager(),
 	}
 	return a
 }
@@ -53,12 +52,12 @@ func (a *App) setupCronJobs() {
 	cr.Start()
 }
 
-func (a *App) FetchData(c *client.Client) {
+func (a *App) FetchData(c *robinhood.Client) {
 	a.FetchAccounts(c)
 	a.FetchPositionsAndQuotes(c)
 }
 
-func (a *App) FetchAccounts(c *client.Client) {
+func (a *App) FetchAccounts(c *robinhood.Client) {
 	fmt.Printf("Fetching account for %v\n", c.UserName)
 	ar, _, err := c.Accounts.ListAccounts()
 	if err != nil {
@@ -75,7 +74,7 @@ func (a *App) FetchAccounts(c *client.Client) {
 	a.cache.SetAccount(c.UserName, &ar.Results[0])
 }
 
-func (a *App) FetchPositionsAndQuotes(c *client.Client) {
+func (a *App) FetchPositionsAndQuotes(c *robinhood.Client) {
 	fmt.Printf("Fetching positions for %v\n", c.UserName)
 	pr, _, err := c.Positions.ListPositions()
 	if err != nil {
@@ -101,14 +100,14 @@ func (a *App) FetchPositionsAndQuotes(c *client.Client) {
 	a.cache.SetPositions(c.UserName, pr)
 }
 
-func (a *App) GetLeaderboard() *models.Leaderboard {
+func (a *App) GetLeaderboard() *robinhood.Leaderboard {
 	lb := a.cache.GetLeaderboard()
 	return &lb
 }
 
 func (a *App) calculateLeaderboard() {
-	lb := &models.Leaderboard{}
-	var users []models.User
+	lb := &robinhood.Leaderboard{}
+	var users []robinhood.User
 	for _, c := range a.cm.Clients {
 		user := a.buildUser(c.UserName)
 		if user != nil {
@@ -121,7 +120,7 @@ func (a *App) calculateLeaderboard() {
 	a.cache.SetLeaderboard(lb)
 }
 
-func (a *App) buildUser(username string) *models.User {
+func (a *App) buildUser(username string) *robinhood.User {
 	account := a.cache.GetAccount(username)
 	cashBalance, _ := strconv.ParseFloat(account.Cash, 64)
 
@@ -140,7 +139,7 @@ func (a *App) buildUser(username string) *models.User {
 
 	totalBalance := cashBalance + positionsBalance
 
-	u := &models.User{
+	u := &robinhood.User{
 		Username:        username,
 		CashBalance:     cashBalance,
 		PositionBalance: positionsBalance,
@@ -150,7 +149,7 @@ func (a *App) buildUser(username string) *models.User {
 	return u
 }
 
-type ByTotalBalance []models.User
+type ByTotalBalance []robinhood.User
 
 func (a ByTotalBalance) Len() int {
 	return len(a)

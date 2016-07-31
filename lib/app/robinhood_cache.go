@@ -3,7 +3,7 @@ package app
 import (
 	"fmt"
 	"github.com/patrickmn/go-cache"
-	"github.com/shubik22/go-robinhood/lib/models"
+	"github.com/shubik22/robinhood"
 )
 
 type RobinhoodCache struct {
@@ -15,44 +15,44 @@ func NewCache() *RobinhoodCache {
 	return &RobinhoodCache{cache: cache}
 }
 
-func (rc *RobinhoodCache) SetAccount(username string, account *models.Account) {
+func (rc *RobinhoodCache) SetAccount(username string, account *robinhood.Account) {
 	key := fmt.Sprintf("%v:account", username)
 	rc.cache.Set(key, *account, cache.NoExpiration)
 }
 
-func (rc *RobinhoodCache) GetAccount(username string) models.Account {
+func (rc *RobinhoodCache) GetAccount(username string) robinhood.Account {
 	key := fmt.Sprintf("%v:account", username)
 	a, _ := rc.cache.Get(key)
-	return a.(models.Account)
+	return a.(robinhood.Account)
 }
 
-func (rc *RobinhoodCache) SetPositions(username string, pr *models.PositionsResponse) {
+func (rc *RobinhoodCache) SetPositions(username string, pr *robinhood.PositionsResponse) {
 	key := fmt.Sprintf("%v:positions", username)
 	rc.cache.Set(key, *pr, cache.NoExpiration)
 }
 
-func (rc *RobinhoodCache) GetPositions(username string) models.PositionsResponse {
+func (rc *RobinhoodCache) GetPositions(username string) robinhood.PositionsResponse {
 	key := fmt.Sprintf("%v:positions", username)
 	p, _ := rc.cache.Get(key)
-	return p.(models.PositionsResponse)
+	return p.(robinhood.PositionsResponse)
 }
 
-func (rc *RobinhoodCache) SetQuote(positionUrl string, quote *models.Quote) {
+func (rc *RobinhoodCache) SetQuote(positionUrl string, quote *robinhood.Quote) {
 	key := fmt.Sprintf("%v:quote", positionUrl)
 	rc.cache.Set(key, *quote, cache.NoExpiration)
 }
 
-func (rc *RobinhoodCache) GetQuote(positionUrl string) models.Quote {
+func (rc *RobinhoodCache) GetQuote(positionUrl string) robinhood.Quote {
 	key := fmt.Sprintf("%v:quote", positionUrl)
 	a, _ := rc.cache.Get(key)
-	return a.(models.Quote)
+	return a.(robinhood.Quote)
 }
 
-func (rc *RobinhoodCache) SetLeaderboard(lb *models.Leaderboard) {
+func (rc *RobinhoodCache) SetLeaderboard(lb *robinhood.Leaderboard) {
 	rc.cache.Set("leaderboard", *lb, cache.NoExpiration)
 }
 
-func (rc *RobinhoodCache) GetLeaderboard() models.Leaderboard {
+func (rc *RobinhoodCache) GetLeaderboard() robinhood.Leaderboard {
 	lb, _ := rc.cache.Get("leaderboard")
-	return lb.(models.Leaderboard)
+	return lb.(robinhood.Leaderboard)
 }
