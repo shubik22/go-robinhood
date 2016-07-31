@@ -51,6 +51,7 @@ coverage
 build/Release
 
 # Dependency directories
+elm-stuff
 node_modules
 jspm_packages
 
@@ -64,6 +65,4 @@ jspm_packages
 config/credentials.json
 
 # Built files
-static_files/css/milligram.min.css
-static_files/css/normalize.css
 static_files/js/*.bundle.js
