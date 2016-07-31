@@ -6,7 +6,7 @@ import (
 
 	"github.com/kataras/iris"
 
-	"github.com/shubik22/robinhood"
+	"github.com/shubik22/robinhood-client"
 )
 
 type UsersResponse struct {

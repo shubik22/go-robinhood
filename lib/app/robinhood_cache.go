@@ -3,7 +3,7 @@ package app
 import (
 	"fmt"
 	"github.com/patrickmn/go-cache"
-	"github.com/shubik22/robinhood"
+	"github.com/shubik22/robinhood-client"
 )
 
 type RobinhoodCache struct {

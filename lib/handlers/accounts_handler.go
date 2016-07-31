@@ -3,7 +3,7 @@ package handlers
 import (
 	"github.com/kataras/iris"
 
-	"github.com/shubik22/robinhood"
+	"github.com/shubik22/robinhood-client"
 )
 
 func AccountsHandler(c *robinhood.Client, ctx *iris.Context) {

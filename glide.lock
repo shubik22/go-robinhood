@@ -1,5 +1,5 @@
 hash: 569c0e52d81c2109e405d7cb9c7136feba56e7bc8e0ec9a5e30ef6096c5e49f9
-updated: 2016-07-31T11:31:08.383382297-07:00
+updated: 2016-07-31T13:04:08.412519349-07:00
 imports:
 - name: github.com/ajg/form
   version: 7ff89c75808766205bfa4411abb436c98c33eb5e
@@ -95,12 +95,8 @@ imports:
   version: 97b2266dfe4bd4ea1b81a463322f04f8b724801e
   subpackages:
   - diffmatchpatch
-- name: github.com/shubik22/go-robinhood
-  version: 181cd1f4832641109120b076f9f1448372cea15d
-  subpackages:
-  - lib/models
 - name: github.com/shubik22/robinhood-client
-  version: 84480baaa2ca8e1b0be392e8e367a48d3820b61b
+  version: 11901594e57a7bb81164de760b0a0f1749ddb253
 - name: github.com/shurcooL/sanitized_anchor_name
   version: 10ef21a441db47d8b13ebcc5fd2310f636973c77
 - name: github.com/stretchr/testify

@@ -3,7 +3,8 @@ package app
 import (
 	"fmt"
 	"github.com/robfig/cron"
-	"github.com/shubik22/robinhood"
+	"github.com/shubik22/robinhood-client"
+	"github.com/shubik22/go-robinhood/lib/managers"
 	"math/rand"
 	"sort"
 	"strconv"
@@ -11,13 +12,13 @@ import (
 
 type App struct {
 	cache *RobinhoodCache
-	cm    *robinhood.ClientManager
+	cm    *managers.ClientManager
 }
 
 func NewApp() *App {
 	a := &App{
 		cache: NewCache(),
-		cm:    robinhood.NewClientManager(),
+		cm:    managers.NewClientManager(),
 	}
 	return a
 }
@@ -121,10 +122,14 @@ func (a *App) calculateLeaderboard() {
 }
 
 func (a *App) buildUser(username string) *robinhood.User {
+	u := &robinhood.User{
+		Username: username,
+	}
 	account := a.cache.GetAccount(username)
 	cashBalance, _ := strconv.ParseFloat(account.Cash, 64)
+	u.CashBalance = cashBalance
 
-	var positionsBalance float64
+	var positionBalance float64
 	pr := a.cache.GetPositions(username)
 	for _, p := range pr.Results {
 		quantity, _ := strconv.ParseFloat(p.Quantity, 64)
@@ -134,17 +139,21 @@ func (a *App) buildUser(username string) *robinhood.User {
 
 		q := a.cache.GetQuote(p.URL)
 		lastPrice, _ := strconv.ParseFloat(q.LastTradePrice, 64)
-		positionsBalance += (quantity * lastPrice)
+		avgBuyPrice, _ := strconv.ParseFloat(p.AverageBuyPrice, 64)
+		simplePosition := robinhood.SimplePosition{
+			PurchaseTime:    p.CreatedAt,
+			Quantity:        quantity,
+			Symbol:          q.Symbol,
+			AverageBuyPrice: avgBuyPrice,
+			LastTradePrice:  lastPrice,
+		}
+		u.Positions = append(u.Positions, simplePosition)
+		positionBalance += (quantity * lastPrice)
 	}
 
-	totalBalance := cashBalance + positionsBalance
-
-	u := &robinhood.User{
-		Username:        username,
-		CashBalance:     cashBalance,
-		PositionBalance: positionsBalance,
-		TotalBalance:    totalBalance,
-	}
+	totalBalance := cashBalance + positionBalance
+	u.PositionBalance = positionBalance
+	u.TotalBalance = totalBalance
 
 	return u
 }
