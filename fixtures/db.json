@@ -1,0 +1,141 @@
+{
+  "leaderboard": {
+    "entries": [
+      {
+        "username": "kanye west",
+        "cash_balance": 39.21,
+        "position_balance": 61.15,
+        "total_balance": 100.36,
+        "positions": [
+          {
+            "purchase_time": "2015-03-27T14:05:33.225096Z",
+            "quantity": 1,
+            "symbol":"RSX",
+            "average_buy_price": 16.78,
+            "last_trade_price": 18.03
+          }
+        ]
+      },
+      {
+        "username": "gucci mane",
+        "cash_balance": 26.14,
+        "position_balance": 97.64,
+        "total_balance": 123.78,
+        "positions": [
+          {
+            "purchase_time": "2015-03-27T14:05:33.225096Z",
+            "quantity": 1,
+            "symbol":"RSX",
+            "average_buy_price": 16.78,
+            "last_trade_price": 18.03
+          }
+        ]
+      },
+      {
+        "username": "chance the rapper",
+        "cash_balance": 35.22,
+        "position_balance": 154.62,
+        "total_balance": 189.84,
+        "positions": [
+          {
+            "purchase_time": "2015-03-27T14:05:33.225096Z",
+            "quantity": 1,
+            "symbol":"RSX",
+            "average_buy_price": 16.78,
+            "last_trade_price": 18.03
+          }
+        ]
+      },
+      {
+        "username": "2 chainz",
+        "cash_balance": 23.74,
+        "position_balance": 2.1,
+        "total_balance": 25.84,
+        "positions": [
+          {
+            "purchase_time": "2015-03-27T14:05:33.225096Z",
+            "quantity": 1,
+            "symbol":"RSX",
+            "average_buy_price": 16.78,
+            "last_trade_price": 18.03
+          }
+        ]
+      },
+      {
+        "username": "pusha t",
+        "cash_balance": 28.79,
+        "position_balance": 73,
+        "total_balance": 101.79,
+        "positions": [
+          {
+            "purchase_time": "2015-03-27T14:05:33.225096Z",
+            "quantity": 1,
+            "symbol":"RSX",
+            "average_buy_price": 16.78,
+            "last_trade_price": 18.03
+          }
+        ]
+      },
+      {
+        "username": "mikewillmadeit",
+        "cash_balance": 8.91,
+        "position_balance": 169.25,
+        "total_balance": 178.16,
+        "positions": [
+          {
+            "purchase_time": "2015-03-27T14:05:33.225096Z",
+            "quantity": 1,
+            "symbol":"RSX",
+            "average_buy_price": 16.78,
+            "last_trade_price": 18.03
+          }
+        ]
+      },
+      {
+        "username": "vince staples",
+        "cash_balance": 13.71,
+        "position_balance": 47.78,
+        "total_balance": 61.49,
+        "positions": [
+          {
+            "purchase_time": "2015-03-27T14:05:33.225096Z",
+            "quantity": 1,
+            "symbol":"RSX",
+            "average_buy_price": 16.78,
+            "last_trade_price": 18.03
+          }
+        ]
+      },
+      {
+        "username": "kendrick lamar",
+        "cash_balance": 35.42,
+        "position_balance": 84.07,
+        "total_balance": 119.49,
+        "positions": [
+          {
+            "purchase_time": "2015-03-27T14:05:33.225096Z",
+            "quantity": 1,
+            "symbol":"RSX",
+            "average_buy_price": 16.78,
+            "last_trade_price": 18.03
+          }
+        ]
+      },
+      {
+        "username": "frank ocean",
+        "cash_balance": 4.13,
+        "position_balance": 196.99,
+        "total_balance": 201.12,
+        "positions": [
+          {
+            "purchase_time": "2015-03-27T14:05:33.225096Z",
+            "quantity": 1,
+            "symbol":"RSX",
+            "average_buy_price": 16.78,
+            "last_trade_price": 18.03
+          }
+        ]
+      }
+    ]
+  }
+}

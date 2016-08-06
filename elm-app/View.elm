@@ -14,4 +14,4 @@ view model =
 
 leaderboard : Model -> Html Msg
 leaderboard model =
-  Html.App.map PlayersMsg (Players.List.view model.players)
+  Html.App.map PlayersMsg (Players.List.view model.players model.sortedColumn model.sortedDirection)

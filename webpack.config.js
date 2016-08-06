@@ -5,12 +5,13 @@ const path = require("path");
 module.exports = {
   entry: {
     app: [
-      './index.js'
+      './web/index.js'
     ]
   },
 
   output: {
     path: path.resolve(__dirname + '/static_files'),
+    publicPath: "/assets/",
     filename: '[name].bundle.js',
   },
 
@@ -33,7 +34,37 @@ module.exports = {
   },
 
   devServer: {
-    inline: true,
     stats: { colors: true },
+    contentBase: './static_files',
+    proxy: {
+      "/leaderboard": {
+        target: 'http://localhost:4000',
+        ignorePath: false
+      },
+      "/assets/style.css": {
+        target: 'http://localhost:4000/style.css',
+        ignorePath: true
+      },
+      "/assets/milligram.min.css": {
+        target: 'http://localhost:4000/milligram.min.css',
+        ignorePath: true
+      },
+      "/assets/favicon.ico": {
+        target: 'http://localhost:4000/favicon.ico',
+        ignorePath: true
+      },
+      "/assets/logo.png": {
+        target: 'http://localhost:4000/logo.png',
+        ignorePath: true
+      },
+      "/assets/open-iconic.svg": {
+        target: 'http://localhost:4000/open-iconic.svg',
+        ignorePath: true
+      },
+      "/assets/open-iconic.woff": {
+        target: 'http://localhost:4000/open-iconic.woff',
+        ignorePath: true
+      }
+    }
   }
 };

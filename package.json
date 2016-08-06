@@ -4,8 +4,9 @@
   "description": "An group tracking application of Robinhood accounts.",
   "main": "index.js",
   "scripts": {
-    "build": "gulp build",
-    "test": "mocha ./"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "dev": "json-server ./fixtures/db.json --watch --static ./static_files --port 4000 & webpack-dev-server --hot --inline --port 3000"
   },
   "repository": {
     "type": "git",
@@ -26,11 +27,9 @@
   "devDependencies": {
     "elm-webpack-loader": "^3.0.3",
     "file-loader": "^0.9.0",
-    "webpack": "^1.13.1"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "watch": "webpack --watch"
+    "json-server": "^0.8.17",
+    "webpack": "^1.13.1",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-dev-server": "^1.14.1"
   }
 }

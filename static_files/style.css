@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Iconic';
+  src: url('open-iconic.woff') format('woff'), url('open-iconic.svg#iconic-sm') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+  
 .header {
   width: 100%;
   background-color: #21ce99;
@@ -10,4 +17,26 @@
   margin: 0 auto;
   width: 75px;
   height: auto;
+}
+
+.sortable-column-header {
+  cursor: pointer;
+}
+
+.descending::after {
+  display: inline-block;
+  font-family: Iconic;
+  font-size: 12px;
+  margin-left: 5px;
+  content: '\e02d';
+  -webkit-font-smoothing: antialiased;
+}
+
+.ascending::after {
+  display: inline-block;
+  font-family: Iconic;
+  font-size: 12px;
+  margin-left: 5px;
+  content: '\e030';
+  -webkit-font-smoothing: antialiased;
 }

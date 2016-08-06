@@ -65,5 +65,5 @@ jspm_packages
 config/credentials.json
 
 # Built files
-static_files/*.bundle.js
+static_files/app.bundle.js
 static_files/index.html

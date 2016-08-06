@@ -1,31 +1,45 @@
 module Players.List exposing (..)
 
 import Html exposing (..)
-import String exposing (padRight, contains, length)
+import Html.Events exposing (onClick)
+import Html.Attributes exposing (classList)
 import List exposing (reverse, sortBy, indexedMap)
-import Players.Messages exposing (..)
-import Players.Models exposing (Player)
+import Players.Messages exposing (Msg(..))
+import Players.Models exposing (Player, SortedColumn(..), SortedDirection(..))
 
-view : List Player -> Html Msg
-view players =
-  div []
-    [ list players
-    ]
-
-list : List Player -> Html Msg
-list players =
+view : List Player -> SortedColumn -> SortedDirection -> Html Msg
+view players sortedColumn sortedDirection =
   table []
-  [ thead []
+  [ tableHead sortedColumn sortedDirection
+  , tableBody players sortedColumn sortedDirection
+  ]
+
+tableHead : SortedColumn -> SortedDirection -> Html Msg
+tableHead sortedColumn sortedDirection =
+  thead []
     [ tr []
       [ th [] [ text "Rank" ]
       , th [] [ text "Name" ]
-      , th [] [ text "Cash Balance" ]
-      , th [] [ text "Position Balance" ]
-      , th [] [ text "Total Balance" ]
+      , th [ classList (headerClasses sortedDirection (sortedColumn == CashBalance)), onClick (Sort CashBalance (swapDirection sortedDirection)) ] [ text "Cash Balance" ]
+      , th [ classList (headerClasses sortedDirection (sortedColumn == PositionBalance)), onClick (Sort PositionBalance (swapDirection sortedDirection)) ] [ text "Position Balance" ]
+      , th [ classList (headerClasses sortedDirection (sortedColumn == TotalBalance)), onClick (Sort TotalBalance (swapDirection sortedDirection)) ] [ text "Total Balance" ]
       ]
     ]
-  , tbody [] (indexedMap playerRow (sortPlayers players))
-  ]
+
+headerClasses : SortedDirection -> Bool -> List (String, Bool)
+headerClasses sortedDirection show =
+  let
+    ascendingStatus = (sortedDirection == Ascending) && show
+    descendingStatus = (sortedDirection == Descending) && show
+  in
+    [ ("sortable-column-header", True)
+    , ("ascending", ascendingStatus)
+    , ("descending", descendingStatus)
+    ]
+
+tableBody : List Player -> SortedColumn -> SortedDirection -> Html Msg
+tableBody players sortedColumn sortedDirection =
+  tbody [] (indexedMap playerRow (sortPlayers players sortedColumn sortedDirection))
 
 playerRow : Int -> Player -> Html Msg
 playerRow rank player =
@@ -34,15 +48,37 @@ playerRow rank player =
   , td [] [ text player.name ]
   , td [] [ text (formatMoney player.cashBalance) ]
   , td [] [ text (formatMoney player.positionBalance) ]
-  , td []
-  [ strong [] [ text (formatMoney player.totalBalance) ] ]
+  , td [] [ text (formatMoney player.totalBalance) ]
   ]
 
-sortPlayers : List Player -> List Player
-sortPlayers players =
-  players
-    |> sortBy .totalBalance
-    |> reverse
+sortPlayers : List Player -> SortedColumn -> SortedDirection -> List Player
+sortPlayers players sortedColumn sortedDirection =
+  case sortedDirection of
+    Ascending ->
+      players
+        |> sortingMap sortedColumn
+    Descending ->
+      players
+        |> sortingMap sortedColumn
+        |> reverse
+
+sortingMap : SortedColumn -> List Player -> List Player
+sortingMap sortedColumn players =
+  case sortedColumn of
+    CashBalance ->
+     sortBy .cashBalance players
+    PositionBalance ->
+     sortBy .positionBalance players
+    TotalBalance ->
+     sortBy .totalBalance players
+
+swapDirection : SortedDirection -> SortedDirection
+swapDirection sortedDirection =
+  case sortedDirection of
+    Ascending ->
+      Descending
+    Descending ->
+      Ascending
 
 formatMoney : Float -> String
 formatMoney amount =

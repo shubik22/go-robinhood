@@ -9,7 +9,7 @@ update msg model =
   case msg of
     PlayersMsg subMsg ->
       let
-          ( updatedPlayers, cmd ) =
-            Players.Update.update subMsg model.players
+        ( updatedPlayers, updatedSortedColumn, updatedSortedDirection, cmd ) =
+          Players.Update.update subMsg model.players model.sortedColumn model.sortedDirection
       in
-         ( { model | players = updatedPlayers }, Cmd.map PlayersMsg cmd )
+        ( { model | players = updatedPlayers, sortedColumn = updatedSortedColumn, sortedDirection = updatedSortedDirection }, Cmd.map PlayersMsg cmd )
