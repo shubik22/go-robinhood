@@ -3,9 +3,9 @@
     "entries": [
       {
         "username": "kanye west",
-        "cash_balance": 39.21,
+        "cash_balance": 39.2134,
         "position_balance": 61.15,
-        "total_balance": 100.36,
+        "total_balance": 100.36332,
         "positions": [
           {
             "purchase_time": "2015-03-27T14:05:33.225096Z",
@@ -18,9 +18,9 @@
       },
       {
         "username": "gucci mane",
-        "cash_balance": 26.14,
-        "position_balance": 97.64,
-        "total_balance": 123.78,
+        "cash_balance": 26.1499999,
+        "position_balance": 97.641,
+        "total_balance": 123.78323,
         "positions": [
           {
             "purchase_time": "2015-03-27T14:05:33.225096Z",
@@ -33,9 +33,9 @@
       },
       {
         "username": "chance the rapper",
-        "cash_balance": 35.22,
+        "cash_balance": 35.223,
         "position_balance": 154.62,
-        "total_balance": 189.84,
+        "total_balance": 189.8423,
         "positions": [
           {
             "purchase_time": "2015-03-27T14:05:33.225096Z",
@@ -65,7 +65,7 @@
         "username": "pusha t",
         "cash_balance": 28.79,
         "position_balance": 73,
-        "total_balance": 101.79,
+        "total_balance": 101.7923,
         "positions": [
           {
             "purchase_time": "2015-03-27T14:05:33.225096Z",
@@ -80,7 +80,7 @@
         "username": "mikewillmadeit",
         "cash_balance": 8.91,
         "position_balance": 169.25,
-        "total_balance": 178.16,
+        "total_balance": 178.1623,
         "positions": [
           {
             "purchase_time": "2015-03-27T14:05:33.225096Z",
@@ -95,7 +95,7 @@
         "username": "vince staples",
         "cash_balance": 13.71,
         "position_balance": 47.78,
-        "total_balance": 61.49,
+        "total_balance": 61.4914,
         "positions": [
           {
             "purchase_time": "2015-03-27T14:05:33.225096Z",
@@ -108,7 +108,7 @@
       },
       {
         "username": "kendrick lamar",
-        "cash_balance": 35.42,
+        "cash_balance": 35.4222,
         "position_balance": 84.07,
         "total_balance": 119.49,
         "positions": [
@@ -124,14 +124,14 @@
       {
         "username": "frank ocean",
         "cash_balance": 4.13,
-        "position_balance": 196.99,
+        "position_balance": 196.999999,
         "total_balance": 201.12,
         "positions": [
           {
             "purchase_time": "2015-03-27T14:05:33.225096Z",
             "quantity": 1,
             "symbol":"RSX",
-            "average_buy_price": 16.78,
+            "average_buy_price": 16.7823,
             "last_trade_price": 18.03
           }
         ]

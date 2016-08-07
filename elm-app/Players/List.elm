@@ -4,6 +4,7 @@ import Html exposing (..)
 import Html.Events exposing (onClick)
 import Html.Attributes exposing (classList)
 import List exposing (reverse, sortBy, indexedMap)
+import Numeral exposing (format)
 import Players.Messages exposing (Msg(..))
 import Players.Models exposing (Player, SortedColumn(..), SortedDirection(..))
 
@@ -46,9 +47,9 @@ playerRow rank player =
   tr []
   [ td [] [ text (toString (rank + 1)) ]
   , td [] [ text player.name ]
-  , td [] [ text (formatMoney player.cashBalance) ]
-  , td [] [ text (formatMoney player.positionBalance) ]
-  , td [] [ text (formatMoney player.totalBalance) ]
+  , td [] [ text (format currencyFormat player.cashBalance) ]
+  , td [] [ text (format currencyFormat player.positionBalance) ]
+  , td [] [ text (format currencyFormat player.totalBalance) ]
   ]
 
 sortPlayers : List Player -> SortedColumn -> SortedDirection -> List Player
@@ -80,6 +81,6 @@ swapDirection sortedDirection =
     Descending ->
       Ascending
 
-formatMoney : Float -> String
-formatMoney amount =
-  "$" ++ (toString amount)
+currencyFormat : String
+currencyFormat =
+  "$0,0.00"
