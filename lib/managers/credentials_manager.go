@@ -14,10 +14,7 @@ type CredentialsManager struct {
 }
 
 func NewCredentialsManager() *CredentialsManager {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
+	_ := godotenv.Load()
 
 	cm := &CredentialsManager{
 		UsersMap: make(map[string]string),
