@@ -27,5 +27,10 @@ func main() {
 		ctx.ServeFile("./static_files/index.html", false)
 	})
 
-	iris.Listen(":8080")
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	port = ":" + port
+	iris.Listen(port)
 }
