@@ -1,6 +1,8 @@
 package main
 
 import (
+	"os"
+
 	"github.com/iris-contrib/middleware/logger"
 	"github.com/iris-contrib/middleware/recovery"
 	"github.com/kataras/iris"
