@@ -124,6 +124,7 @@ func (a *App) calculateLeaderboard() {
 func (a *App) buildUser(username string) *robinhood.User {
 	u := &robinhood.User{
 		Username: username,
+		Positions: make([]int, 0)
 	}
 	account := a.cache.GetAccount(username)
 	cashBalance, _ := strconv.ParseFloat(account.Cash, 64)
