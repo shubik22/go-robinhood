@@ -25,6 +25,9 @@ _testmain.go
 
 vendor/
 
+# executable
+go-robinhood
+
 # Logs
 logs
 *.log
