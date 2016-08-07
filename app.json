@@ -1,0 +1,18 @@
+{
+  "name": "go-robinhood",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubik22/go-robinhood.git"
+  },
+  "env": {
+    "ELM_COMPILE": "echo Loaded Elm buildpack"
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/srid/heroku-buildpack-elm.git"
+    },
+    {
+      "url": "https://github.com/hone/heroku-buildpack-static"
+    }
+  ]
+}
