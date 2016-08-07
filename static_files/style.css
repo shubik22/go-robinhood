@@ -4,7 +4,7 @@
   font-weight: normal;
   font-style: normal;
 }
-  
+
 .header {
   width: 100%;
   background-color: #21ce99;
@@ -21,22 +21,27 @@
 
 .sortable-column-header {
   cursor: pointer;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.sortable-column-header::after {
+  font-family: Iconic;
+  content: '\00A0';
+  display: inline-block;
+  font-size: 12px;
+  width: 12px;
+  height: 12px;
+  margin-left: 5px;
+  -webkit-font-smoothing: antialiased;
 }
 
 .descending::after {
-  display: inline-block;
-  font-family: Iconic;
-  font-size: 12px;
-  margin-left: 5px;
   content: '\e02d';
-  -webkit-font-smoothing: antialiased;
 }
 
 .ascending::after {
-  display: inline-block;
-  font-family: Iconic;
-  font-size: 12px;
-  margin-left: 5px;
   content: '\e030';
-  -webkit-font-smoothing: antialiased;
 }
