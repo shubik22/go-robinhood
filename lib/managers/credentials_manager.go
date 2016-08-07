@@ -2,7 +2,6 @@ package managers
 
 import (
 	"fmt"
-	"log"
 	"os"
 	"strings"
 
@@ -14,7 +13,7 @@ type CredentialsManager struct {
 }
 
 func NewCredentialsManager() *CredentialsManager {
-	_ := godotenv.Load()
+	godotenv.Load()
 
 	cm := &CredentialsManager{
 		UsersMap: make(map[string]string),
