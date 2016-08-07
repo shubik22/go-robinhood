@@ -1,6 +1,9 @@
 {
   "name": "go-robinhood",
   "version": "0.0.1",
+  "engines": {
+    "node": "5.11.1"
+  },
   "description": "An group tracking application of Robinhood accounts.",
   "main": "index.js",
   "scripts": {
