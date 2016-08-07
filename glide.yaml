@@ -1,4 +1,4 @@
-package: github.com/shubik22/go-robinhood
+package: github.com/shubik22/rbhd
 import:
 - package: github.com/kataras/iris
 - package: github.com/iris-contrib/middleware

@@ -1,5 +1,5 @@
 {
-  "name": "go-robinhood",
+  "name": "rbhd",
   "version": "0.0.1",
   "engines": {
     "node": "5.11.1"
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shubik22/go-robinhood.git"
+    "url": "git+https://github.com/shubik22/rbhd.git"
   },
   "keywords": [
     "robinhood",
@@ -25,9 +25,9 @@
   "author": "Ryan Bahniuk, Sam Sweeney",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/shubik22/go-robinhood/issues"
+    "url": "https://github.com/shubik22/rbhd/issues"
   },
-  "homepage": "https://github.com/shubik22/go-robinhood#readme",
+  "homepage": "https://github.com/shubik22/rbhd#readme",
   "dependencies": {
     "elm-webpack-loader": "^3.0.3",
     "file-loader": "^0.9.0",

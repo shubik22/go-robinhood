@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/robfig/cron"
 	"github.com/shubik22/robinhood-client"
-	"github.com/shubik22/go-robinhood/lib/managers"
+	"github.com/shubik22/rbhd/lib/managers"
 	"math/rand"
 	"sort"
 	"strconv"

@@ -7,8 +7,8 @@ import (
 	"github.com/iris-contrib/middleware/recovery"
 	"github.com/kataras/iris"
 
-	"github.com/shubik22/go-robinhood/lib/app"
-	"github.com/shubik22/go-robinhood/lib/handlers"
+	"github.com/shubik22/rbhd/lib/app"
+	"github.com/shubik22/rbhd/lib/handlers"
 )
 
 func main() {

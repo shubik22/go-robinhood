@@ -1,8 +1,8 @@
 {
-  "name": "go-robinhood",
+  "name": "rbhd",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shubik22/go-robinhood.git"
+    "url": "git+https://github.com/shubik22/rbhd.git"
   },
   "env": {
     "ELM_COMPILE": "echo Loaded Elm buildpack"

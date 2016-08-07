@@ -3,7 +3,7 @@ package handlers
 import (
 	"github.com/kataras/iris"
 
-	"github.com/shubik22/go-robinhood/lib/app"
+	"github.com/shubik22/rbhd/lib/app"
 )
 
 func LeaderboardHandler(a *app.App, ctx *iris.Context) {
