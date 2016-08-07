@@ -21,7 +21,7 @@ func main() {
 		handlers.LeaderboardHandler(a, ctx)
 	})
 
-	iris.Static("/static_files", "./static_files/", 1)
+	iris.Static("/assets", "./static_files/", 1)
 
 	iris.Get("/", func(ctx *iris.Context) {
 		ctx.ServeFile("./static_files/index.html", false)
