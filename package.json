@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "dev": "json-server ./fixtures/db.json --watch --static ./static_files --port 4000 & webpack-dev-server --hot --inline --port 3000"
+    "dev": "json-server ./fixtures/db.json --watch --static ./static_files --port 4000 & webpack-dev-server --hot --inline --port 3000",
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
