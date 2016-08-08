@@ -127,7 +127,7 @@ func (a *App) buildUser(username string) *robinhood.User {
 		Positions: make([]robinhood.SimplePosition, 0),
 	}
 	account := a.cache.GetAccount(username)
-	cashBalance, _ := strconv.ParseFloat(account.Cash, 64)
+	cashBalance, _ := strconv.ParseFloat(account.BuyingPower, 64)
 	u.CashBalance = cashBalance
 
 	var positionBalance float64
