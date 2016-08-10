@@ -2,7 +2,7 @@ module Players.List exposing (..)
 
 import Html exposing (..)
 import Html.Events exposing (onClick)
-import Html.Attributes exposing (classList)
+import Html.Attributes exposing (class, classList)
 import List exposing (reverse, sortBy, indexedMap)
 import Numeral exposing (format)
 import Players.Messages exposing (Msg(..))
@@ -44,9 +44,9 @@ tableBody players sortedColumn sortedDirection =
 
 playerRow : Int -> Player -> Html Msg
 playerRow rank player =
-  tr []
+  tr [ class "player-row" ]
   [ td [] [ text (toString (rank + 1)) ]
-  , td [] [ text player.name ]
+  , td [ onClick (ShowPositions ("Positions for " ++ player.name) player.positions) ] [ text player.name ]
   , td [] [ text (format currencyFormat player.cashBalance) ]
   , td [] [ text (format currencyFormat player.positionBalance) ]
   , td [] [ text (format currencyFormat player.totalBalance) ]
